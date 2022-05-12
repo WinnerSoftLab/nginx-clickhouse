@@ -6,4 +6,4 @@ build:
 	CGO_ENABLED=0 GOOS=linux GOAMD64=$(GOAMD64) go build -a -installsuffix cgo -o nginx-clickhouse .
 
 docker:
-	docker build --rm --no-cache=true -e GOAMD64=$(GOAMD64) -t mintance/nginx-clickhouse -f Dockerfile .
+	docker build --rm --no-cache=true -e GOAMD64=$(GOAMD64) -build-arg GolangVersion=$(GolangVersion) -t mintance/nginx-clickhouse -f Dockerfile .
